@@ -2,7 +2,6 @@
   "name": "http-server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
   "scripts": {
     "start": "node src/server/index.js",
     "dev": "nodemon src/server/index.js"
