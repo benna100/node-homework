@@ -5,6 +5,10 @@ const reservationRouter = require("./api/reservation");
 const userRouter = require("./api/user");
 const router = express.Router();
 const connection = require("./db");
+const path = require("path");
+
+const buildPath = path.join(__dirname, "../../dist");
+app.use(express.static(buildPath));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
