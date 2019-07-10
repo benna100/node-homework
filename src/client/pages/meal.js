@@ -14,7 +14,6 @@ function mealsId(req, router) {
   fetch(`/api/meals/${req.param.id}`)
     .then(response => response.json())
     .then(meal => {
-      console.log(meal);
       const mealElement = document.querySelector("section.meal");
 
       let reservationsElement = `<section class="reservations">Reservations:`;

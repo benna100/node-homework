@@ -4,6 +4,7 @@ const mealRouter = require("./api/meal");
 const reservationRouter = require("./api/reservation");
 const userRouter = require("./api/user");
 const router = express.Router();
+const connection = require("./db");
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));

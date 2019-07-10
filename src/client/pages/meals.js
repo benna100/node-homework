@@ -13,7 +13,6 @@ function mealsRouter(req, router) {
   fetch("/api/meals")
     .then(response => response.json())
     .then(meals => {
-      console.log(meals);
       const mealsElement = document.querySelector("section.meals");
       let renderedMeals = "<ul>";
       meals.forEach(meal => {
