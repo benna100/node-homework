@@ -7,6 +7,7 @@ const router = express.Router();
 const connection = require("./db");
 const path = require("path");
 
+// Serve the built client html
 const buildPath = path.join(__dirname, "../../dist");
 app.use(express.static(buildPath));
 
@@ -21,6 +22,8 @@ router.use("/users", userRouter);
 
 app.use("/api", router);
 
+// Ensures that the client router works on reload aswell.
+// Sends all requests back to index.html where the routing lib takes over
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "./../../dist/index.html"), function(err) {
     if (err) {
