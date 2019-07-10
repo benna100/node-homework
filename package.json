@@ -6,6 +6,7 @@
     "node": "8.11.1"
   },
   "scripts": {
+    "start": "npm run build && node ./src/server/bin/podcast-server",
     "build": "webpack --mode production",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon ./src/server/index.js",
