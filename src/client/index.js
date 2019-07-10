@@ -15,6 +15,6 @@ const router = new SPARouter(options);
 router.get("/", homeRouter);
 router.get("/meals", mealsRouter);
 router.get("/meals/{id}", mealRouter);
-router.notFoundHandler(notFoundRouter);
+//router.notFoundHandler(notFoundRouter);
 
 router.init();
