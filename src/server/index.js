@@ -17,4 +17,4 @@ router.use("/users", userRouter);
 
 app.use("/api", router);
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
