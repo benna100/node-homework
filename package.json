@@ -1,8 +1,7 @@
 {
-  "name": "Meal sharing website",
+  "name": "Meal sharing",
   "version": "1.0.0",
-  "description": "Basic node structure using express",
-  "main": "index.js",
+  "description": "Website for sharing meals",
   "engines": {
     "node": "8.11.1"
   },
@@ -32,6 +31,7 @@
     "express-brute": "^1.0.1",
     "express-form-data": "^2.0.1",
     "multer": "^1.3.0",
+    "mysql": "^2.17.1",
     "path": "^0.12.7",
     "react": "^16.8.2",
     "react-bootstrap": "^1.0.0-beta.8",

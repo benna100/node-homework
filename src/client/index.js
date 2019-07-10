@@ -3,7 +3,7 @@ import "./index.css";
 import SPARouter from "@kodnificent/sparouter"; // if you are hosting locally
 
 import mealsRouter from "./pages/meals";
-import mealsIdRouter from "./pages/mealsId";
+import mealRouter from "./pages/meal";
 import homeRouter from "./pages/home";
 import notFoundRouter from "./pages/notFound";
 
@@ -14,7 +14,7 @@ const router = new SPARouter(options);
 
 router.get("/", homeRouter);
 router.get("/meals", mealsRouter);
-router.get("/meals/{id}", mealsIdRouter);
+router.get("/meals/{id}", mealRouter);
 router.notFoundHandler(notFoundRouter);
 
 router.init();
