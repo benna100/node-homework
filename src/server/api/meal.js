@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const connection = require("./../db");
+const pool = require("./../database");
 
 router.get("/", (request, response) => {
-  connection.query("SELECT * FROM `meals`", function(error, results, fields) {
+  pool.query("SELECT * FROM `meals`", function(error, results, fields) {
     response.json(results);
     // error will be an Error if one occurred during the query
     // results will contain the results of the query
@@ -13,7 +13,7 @@ router.get("/", (request, response) => {
 });
 
 router.get("/:mealId", (request, response) => {
-  connection.query(
+  pool.query(
     `SELECT * FROM meals WHERE idmeals=${
       request.params.mealId
     }; SELECT * FROM \`reservations\` where mealId = ${request.params.mealId}`,
@@ -31,7 +31,7 @@ router.get("/:mealId", (request, response) => {
 });
 
 router.post("/", (request, response) => {
-  connection.query("INSERT INTO meals SET ?", request.body, function(
+  pool.query("INSERT INTO meals SET ?", request.body, function(
     error,
     results,
     fields

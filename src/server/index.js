@@ -2,9 +2,7 @@ const express = require("express");
 const app = express();
 const mealRouter = require("./api/meal");
 const reservationRouter = require("./api/reservation");
-const userRouter = require("./api/user");
 const router = express.Router();
-const connection = require("./db");
 const path = require("path");
 
 // Serve the built client html
@@ -18,7 +16,6 @@ app.use(express.json());
 
 router.use("/meals", mealRouter);
 router.use("/reservations", reservationRouter);
-router.use("/users", userRouter);
 
 app.use("/api", router);
 
