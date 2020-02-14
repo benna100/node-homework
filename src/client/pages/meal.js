@@ -1,5 +1,7 @@
-function mealsId(req, router) {
-  console.log(req.param.id);
+window.mealsId = function mealsId(params) {
+  console.log(params);
+
+  console.log(params.id);
   document.body.innerHTML = `
   <h1>Meals</h1>
   <section class="meal"></section>
@@ -10,51 +12,52 @@ function mealsId(req, router) {
       <button>Create new reservation</button>
     </form>
   </section>`;
+  console.log(`/api/meals/${params.id}`);
 
-  fetch(`/api/meals/${req.param.id}`)
+  fetch(`/api/meals/${params.id}`)
     .then(response => response.json())
     .then(meal => {
-      const mealElement = document.querySelector("section.meal");
+      console.log(meal);
 
-      let reservationsElement = `<section class="reservations">Reservations:`;
+      // const mealElement = document.querySelector("section.meal");
 
-      meal.reservations.forEach(reservation => {
-        reservationsElement += `
-        <li>${reservation.email}</li>
-        `;
-      });
-      reservationsElement += `</section>`;
+      // let reservationsElement = `<section class="reservations">Reservations:`;
 
-      const renderedMeal = `
-      <div>${meal.title}</div>
-      <div>Max number of guests: ${meal.number_of_guests}</div>
-      ${reservationsElement}
-      `;
+      // meal.reservations.forEach(reservation => {
+      //   reservationsElement += `
+      //   <li>${reservation.email}</li>
+      //   `;
+      // });
+      // reservationsElement += `</section>`;
 
-      mealElement.innerHTML = renderedMeal;
+      // const renderedMeal = `
+      // <div>${meal.title}</div>
+      // <div>Max number of guests: ${meal.number_of_guests}</div>
+      // ${reservationsElement}
+      // `;
 
-      const formElement = document.querySelector(
-        "section.create-reservation form"
-      );
-      const inputelement = document.querySelector(
-        "section.create-reservation form input"
-      );
-      formElement.addEventListener("submit", () => {
-        fetch("/api/reservations/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: JSON.stringify({
-            email: inputelement.value,
-            mealId: req.param.id
-          })
-        });
+      // mealElement.innerHTML = renderedMeal;
 
-        event.preventDefault();
-      });
+      // const formElement = document.querySelector(
+      //   "section.create-reservation form"
+      // );
+      // const inputelement = document.querySelector(
+      //   "section.create-reservation form input"
+      // );
+      //   formElement.addEventListener("submit", () => {
+      //     fetch("/api/reservations/", {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json"
+      //         // 'Content-Type': 'application/x-www-form-urlencoded',
+      //       },
+      //       body: JSON.stringify({
+      //         email: inputelement.value,
+      //         mealId: params.id
+      //       })
+      //     });
+
+      //     event.preventDefault();
+      //   });
     });
-}
-
-export default mealsId;
+};

@@ -1,4 +1,6 @@
-function mealsRouter(req, router) {
+window.mealsRouter = function mealsRouter(req, router) {
+  console.log(req);
+
   document.body.innerHTML = `
   <h1>Meals</h1>
   <section class="meals"></section>
@@ -39,6 +41,4 @@ function mealsRouter(req, router) {
         event.preventDefault();
       });
     });
-}
-
-export default mealsRouter;
+};
